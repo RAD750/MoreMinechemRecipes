@@ -1,6 +1,3 @@
-# Nuclear Engineering
+# More Minechem Recipes
 
-Stufo dei soliti reattori nucleari irrealistici? Questa mod fa per te.
-
-
-
+Additional recipes for Minechem 1.4.7
