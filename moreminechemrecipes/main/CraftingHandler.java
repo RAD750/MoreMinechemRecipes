@@ -14,6 +14,7 @@ import ljdp.minechem.api.core.EnumMolecule;
 import ljdp.minechem.api.core.Molecule;
 import ljdp.minechem.api.recipe.DecomposerRecipe;
 import ljdp.minechem.api.recipe.SynthesisRecipe;
+import moreminechemrecipes.main.items.Items;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraft.block.Block;
@@ -29,7 +30,7 @@ public class CraftingHandler {
 		 * 
 		 * getGregTechItem(TIPO, QTA, META)
 		 * 
-		 * TIPO: 0. Lingotti 1. Polveri 2. Celle
+		 * TIPO: 0. Lingotti 1. Polveri 2. Celle, 3. Altro
 		 */
 		
 		ArrayList<ItemStack> ores;
@@ -73,9 +74,23 @@ public class CraftingHandler {
         final Molecule lazurite = new Molecule(EnumMolecule.lazurite, 2);
         final Molecule iron3oxide = new Molecule(EnumMolecule.iron3oxide, 8);
         final Molecule strontiumNitrate = new Molecule(EnumMolecule.strontiumNitrate, 8);
-        final Element phosphorus = new Element(EnumElement.P, 2);
+        final Element phosphorus2x = new Element(EnumElement.P, 2);
         final Element tellurium = new Element(EnumElement.Te, 1);
         final Element copper = new Element(EnumElement.Cu, 3);
-        DecomposerRecipe.add(new DecomposerRecipe(advCircuit, new Chemical[] { lazurite, iron3oxide, strontiumNitrate, phosphorus, copper, tellurium}));
+        DecomposerRecipe.add(new DecomposerRecipe(advCircuit, new Chemical[] { lazurite, iron3oxide, strontiumNitrate, phosphorus2x, copper, tellurium}));
+        
+        //Tellurio da circuiti GT
+        ItemStack advCircuitParts = GregtechCompat.getGregTechItem(3, 1, 24);
+        final Molecule lazurite1x = new Molecule(EnumMolecule.lazurite, 1);
+        final Element phosphorus1x = new Element(EnumElement.P, 1);
+        DecomposerRecipe.add(new DecomposerRecipe(advCircuitParts, new Chemical[] {lazurite1x, phosphorus1x, tellurium}));
+                
+        //Vuota le provette
+        GameRegistry.addSmelting(4992, new ItemStack(Items.glassShard, 1), 0.15f);
+        GameRegistry.addSmelting(4993, new ItemStack(Items.glassShard, 1), 0.15f);
+        GameRegistry.addSmelting(4998, new ItemStack(Items.glassShard, 1), 0.15f);
+        
+        //Fai qualcosa col glass shard
+        ic2.api.Ic2Recipes.addMaceratorRecipe(new ItemStack(Items.glassShard, 16), new ItemStack(Block.sand, 3));
 	}
 }

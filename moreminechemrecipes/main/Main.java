@@ -10,16 +10,17 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import moreminechemrecipes.main.items.Items;
 import net.minecraft.src.BaseMod;
 
-@Mod(name="More Minechem Recipes", version="1.0", modid="MoreMinechemRecipes", dependencies="required-after:IC2; after:factorization; after:Railcraft; after:ThermalExpansion; after:ThermalExpansion|Transport; after:ThermalExpansion|Energy; after:ThermalExpansion|Factory; after:XyCraft; after:MetallurgyCore; after:MetallurgyBase; after:MetallurgyEnder; after:MetallurgyFantasy; after:MetallurgyNether; after:MetallurgyPrecious; after:MetallurgyUtility; after:BuildCraft|Silicon; after:BuildCraft|Core; after:BuildCraft|Transport; after:BuildCraft|Factory; after:BuildCraft|Energy; after:BuildCraft|Builders; after:enhancedgeology;")
+@Mod(name="More Minechem Recipes", version="1.1", modid="MoreMinechemRecipes", dependencies="required-after:IC2; after:factorization; after:Railcraft; after:ThermalExpansion; after:ThermalExpansion|Transport; after:ThermalExpansion|Energy; after:ThermalExpansion|Factory; after:XyCraft; after:MetallurgyCore; after:MetallurgyBase; after:MetallurgyEnder; after:MetallurgyFantasy; after:MetallurgyNether; after:MetallurgyPrecious; after:MetallurgyUtility; after:BuildCraft|Silicon; after:BuildCraft|Core; after:BuildCraft|Transport; after:BuildCraft|Factory; after:BuildCraft|Energy; after:BuildCraft|Builders; after:enhancedgeology;")
 public class Main extends BaseMod{
 	
 	public static Logger mmrLog = Logger.getLogger("MoreMinechemRecipes");
 	
 	@Override
 	public String getVersion() {
-		return "1.0";
+		return "1.1";
 	}
 
 	@Override
@@ -28,7 +29,8 @@ public class Main extends BaseMod{
 	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event) {
-		mmrLog.info("Pavlo Solokha è con voi. E con il vostro spirito");			
+		mmrLog.info("Pavlo Solokha è con voi. E con il vostro spirito.");
+		mmrLog.info("FoxWorn ♥ Hiro");
 	}
 	
 	
@@ -38,6 +40,8 @@ public class Main extends BaseMod{
 	
 	@PostInit
 	public void postInit(FMLPostInitializationEvent event) {
+		Items.initItems();
+		Items.initLanguage();
 		CraftingHandler.initCrafting();
 	}
 }
