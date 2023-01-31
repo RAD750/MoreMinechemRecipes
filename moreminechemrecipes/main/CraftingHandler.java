@@ -99,11 +99,19 @@ public class CraftingHandler {
         DecomposerRecipe.add(new DecomposerRecipe(clcell, new Chemical[] { chlorine, tin }));
         SynthesisRecipe.add(new SynthesisRecipe(clcell, false, 1000, new Chemical[] { null, null, null, null, chlorine, tin, null, null, null }));
 
-        //Cloro craftabile
+        //Zolfo craftabile
         ItemStack scell = GregtechCompat.getGregTechItem(2, 1, 36);
         final Element sulfur = new Element(EnumElement.S, 1);
         DecomposerRecipe.add(new DecomposerRecipe(scell, new Chemical[] { sulfur, tin }));
         SynthesisRecipe.add(new SynthesisRecipe(scell, false, 1000, new Chemical[] { null, null, null, null,sulfur, tin, null, null, null }));
+        
+      //Azoto craftabile
+        ItemStack ncell = GregtechCompat.getGregTechItem(2, 1, 15);
+        final Element nitrogen = new Element(EnumElement.N, 1);
+        DecomposerRecipe.add(new DecomposerRecipe(ncell, new Chemical[] { nitrogen, tin }));
+        SynthesisRecipe.add(new SynthesisRecipe(ncell, false, 1000, new Chemical[] { null, null, null, null, nitrogen, tin, null, null, null }));
+        
+        
         
 	}
 }
